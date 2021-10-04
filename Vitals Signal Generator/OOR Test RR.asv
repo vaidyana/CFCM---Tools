@@ -1,0 +1,16 @@
+%OOR test
+
+Folder='C:\SENSORS\Hill Rom\Bench Test\Bench Test Algs Results 7_6_97H';
+FileName= 'sensig_20120304_123445_patient1_RR_45+-8p_5000_HR_170_1000_Noise_300_Duration_900_rr.mat';
+load ([Folder,'\',FileName]); 
+RRValues=rr_params.rrdec;
+OORVec=zeros;
+m=1;
+   for n=8:13
+        if RRValues(n*60*2)>45
+            OORVec(m)=1;
+        else
+            OORVec(m)=0;
+        end
+    end
+
